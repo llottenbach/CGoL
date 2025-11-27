@@ -30,7 +30,7 @@ class MinimalArchitectureModel(NN.Module):
         x = F.relu(self.conv2(x))
 
         if not self.derivable:
-            x = torch.heaviside(x, torch.tensor([.0], dtype=self.dtype, device=self.device))
+            x = (x > 0).float()
         
         return x
 

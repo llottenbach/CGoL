@@ -3,12 +3,16 @@ import torch
 from cgol.simulator.simulator import Simulator
 
 class TorchSimulator(Simulator):
-    def __init__(self):
+    def __init__(self, device=torch.device('cpu'), dtype=torch.double):
         super().__init__()
-        self.device = torch.device('cpu')
+        self.device = device
+        self.dtype = dtype
 
-    def stepTensor(self, state: torch.Tensor) -> torch.Tensor:
+    def step_tensor(self, state: torch.Tensor) -> torch.Tensor:
         pass
 
-    def stepBatchTensor(self, states: torch.Tensor) -> torch.Tensor:
+    def step_batch_tensor(self, states: torch.Tensor) -> torch.Tensor:
         pass
+
+    def get_config(self) -> dict:
+        return {}

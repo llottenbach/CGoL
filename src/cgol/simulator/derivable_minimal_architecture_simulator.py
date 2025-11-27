@@ -10,13 +10,13 @@ class DerivableMinimalArchitectureSimulator(TorchSimulator):
         self.device = device
 
     def step(self, state):
-        self.stepTensor(torch.from_numpy(state).to(device=self.device)).detach().cpu().numpy()
+        self.step_tensor(torch.from_numpy(state).to(device=self.device)).detach().cpu().numpy()
         
-    def stepBatch(self, states):
-        self.stepBatchTensor(torch.from_numpy(states).to(device=self.device)).detach().cpu().numpy()
+    def step_batch(self, states):
+        self.step_batch_tensor(torch.from_numpy(states).to(device=self.device)).detach().cpu().numpy()
     
-    def stepTensor(self, state):
+    def step_tensor(self, state):
         return self.model.forward(torch.Tensor([state]))
     
-    def stepBatchTensor(self, states):
+    def step_batch_tensor(self, states):
         return self.model.forward(states)

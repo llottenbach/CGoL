@@ -4,5 +4,5 @@ class Simulator:
     def step(self, state: np.ndarray) -> np.ndarray:
         pass
 
-    def stepBatch(self, states: np.ndarray) -> np.ndarray:
+    def step_batch(self, states: np.ndarray) -> np.ndarray:
         pass

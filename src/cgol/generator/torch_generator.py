@@ -7,8 +7,8 @@ class TorchGenerator(Generator):
         super().__init__()
         self.device = torch.device('cpu')
 
-    def generateTensor(self) -> torch.Tensor:
+    def generate_tensor(self, width: int, height: int) -> torch.Tensor:
         pass
 
-    def generateBatchTensor(self) -> torch.Tensor:
+    def generate_batch_tensor(self, width: int, height: int, batch_size: int) -> torch.Tensor:
         pass
