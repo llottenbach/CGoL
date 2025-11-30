@@ -4,3 +4,9 @@
 data/lifewiki/bmp
 data/lifewiki/raw
 data/lifewiki/download
+**/*.log
+**/*.ckpt
+**/*.chkpt
+**/*.zip
+**/wandb/**
+**/*.bmp
