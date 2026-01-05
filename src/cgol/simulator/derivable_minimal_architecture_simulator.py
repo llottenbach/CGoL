@@ -4,9 +4,10 @@ from cgol.simulator.torch_simulator import TorchSimulator
 from cgol.simulator.minimal_architecture_model import MinimalArchitectureModel
 
 class DerivableMinimalArchitectureSimulator(TorchSimulator):
-    def __init__(self, device=torch.device('cpu'), dtype=torch.double):
+    def __init__(self, device=torch.device('cpu'), dtype=torch.double, leaky=False):
         super().__init__()
-        self.model = MinimalArchitectureModel(device=device, dtype=dtype)
+        activation = torch.nn.LeakyReLU if leaky else torch.nn.ReLU
+        self.model = MinimalArchitectureModel(device=device, dtype=dtype, activation=activation)
         self.device = device
         self.model.eval()
 
